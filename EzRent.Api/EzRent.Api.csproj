@@ -26,7 +26,7 @@
     <ProjectReference Include="..\EzRent.Client\EzRent.Client.csproj" />
     <ProjectReference Include="..\EzRent.Domain\EzRent.Domain.csproj" />
     <ProjectReference Include="..\EzRent.Service\EzRent.Service.csproj" />
-    <ProjectReference Include="..\Shared\EzRent.Shared.csproj" />
+    <ProjectReference Include="..\EzRent.Shared\EzRent.Shared.csproj" />
   </ItemGroup>
 
 

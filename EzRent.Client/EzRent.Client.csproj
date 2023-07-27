@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\EzRent.Shared.csproj" />
+    <ProjectReference Include="..\EzRent.Shared\EzRent.Shared.csproj" />
   </ItemGroup>
 
 </Project>
