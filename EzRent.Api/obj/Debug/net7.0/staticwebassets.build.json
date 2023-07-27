@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c3AHM4+xV/dz8R3wUVGwdbS8bAGcJ2FvJXbv7cnfFhQ=",
+  "Hash": "/qmwGm4HegikzdpwlEvh9bpwTXXdnXhJzDpLFwosrMw=",
   "Source": "EzRent.Api",
   "BasePath": "_content/EzRent.Api",
   "Mode": "Default",
@@ -7099,6 +7099,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/tgiampietro/RiderProjects/EzRent/EzRent.Client/obj/Debug/net7.0/scopedcss/bundle/EzRent.Client.styles.css"
+    },
+    {
+      "Identity": "/Users/tgiampietro/RiderProjects/EzRent/EzRent.Client/wwwroot/.DS_Store",
+      "SourceId": "EzRent.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/tgiampietro/RiderProjects/EzRent/EzRent.Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
+      "Identity": "/Users/tgiampietro/RiderProjects/EzRent/EzRent.Client/wwwroot/css/.DS_Store",
+      "SourceId": "EzRent.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/tgiampietro/RiderProjects/EzRent/EzRent.Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "css/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/.DS_Store"
     },
     {
       "Identity": "/Users/tgiampietro/RiderProjects/EzRent/EzRent.Client/wwwroot/css/app.css",

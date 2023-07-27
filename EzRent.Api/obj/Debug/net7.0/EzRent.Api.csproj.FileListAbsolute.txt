@@ -142,7 +142,6 @@
 /Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
 /Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Pomelo.EntityFrameworkCore.MySql.Design.dll
-/Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Pomelo.JsonObject.dll
 /Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/tgiampietro/RiderProjects/EzRent/EzRent.Api/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
