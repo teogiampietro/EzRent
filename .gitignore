@@ -369,3 +369,13 @@ task.xml
 .DS_Store
 .vscode/launch.json
 .vscode/tasks.json
+*.cache
+*.dll
+*.exe
+
+/build/
+_ReSharper.*/
+*.tlog
+Version.cs
+Version.h
+Version.cpp
