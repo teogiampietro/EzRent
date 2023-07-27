@@ -379,3 +379,7 @@ _ReSharper.*/
 Version.cs
 Version.h
 Version.cpp
+_ReSharper.*
+bin
+obj
+packages
