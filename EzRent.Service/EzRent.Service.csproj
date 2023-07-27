@@ -20,8 +20,6 @@
     <ItemGroup>
       <Folder Include="Property\CommandHandler\" />
       <Folder Include="Property\Command\" />
-      <Folder Include="Property\Queries\" />
-      <Folder Include="Property\QueryHandler\" />
     </ItemGroup>
 
 </Project>

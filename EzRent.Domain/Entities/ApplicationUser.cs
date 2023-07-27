@@ -4,5 +4,5 @@ namespace EzRent.Domain.Entities;
 
 public class ApplicationUser : IdentityUser
 {
-    public List<Contract> Contracts { get; set; }
+    public List<Property> Properties { get; set; }
 }

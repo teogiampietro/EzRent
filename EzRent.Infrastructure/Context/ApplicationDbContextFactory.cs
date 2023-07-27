@@ -9,8 +9,9 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
     {
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
-
-        var connectionString = "Data Source=localhost;Initial Catalog=BankApp;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=true";
+        
+        //var connectionString = "Data Source=localhost;Initial Catalog=BankApp;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=true";
+        var connectionString = "server=localhost;uid=admin;pwd=password;database=EzRent;";
         optionsBuilder.UseMySql(connectionString, serverVersion);
         return new ApplicationDbContext(optionsBuilder.Options);
     }

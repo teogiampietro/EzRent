@@ -10,20 +10,18 @@ public class RepositoryBase<T> : IRepositoryBase<T>
 {
     private readonly ApplicationDbContext _dbContext;
 
-    public RepositoryBase(ApplicationDbContext dbContext)
+    protected RepositoryBase(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
     public async Task<IReadOnlyList<T>> GetAllAsync()
-    {
-        return await _dbContext.Set<T>().ToListAsync();
-    }
+        => await _dbContext.Set<T>().ToListAsync();
+
 
     public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate)
-    {
-        return await _dbContext.Set<T>().Where(predicate).ToListAsync();
-    }
+        => await _dbContext.Set<T>().Where(predicate).ToListAsync();
+
 
     public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null,
         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeString = null,
@@ -58,9 +56,8 @@ public class RepositoryBase<T> : IRepositoryBase<T>
     }
 
     public virtual async Task<T> GetByIdAsync(int id)
-    {
-        return await _dbContext.Set<T>().FindAsync(id) ?? throw new InvalidOperationException();
-    }
+        => await _dbContext.Set<T>().FindAsync(id) ?? throw new InvalidOperationException();
+
 
     public async Task<T> AddAsync(T entity)
     {

@@ -14,8 +14,4 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Client> Clients { get; set; }
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<Property> Properties { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-    }
 }
