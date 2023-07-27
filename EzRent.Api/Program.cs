@@ -1,11 +1,15 @@
+using System;
 using System.Reflection;
 using EzRent.Domain.Entities;
 using EzRent.Infrastructure.Context;
 using EzRent.Infrastructure.Repository.Properties;
 using EzRent.Service;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
