@@ -3,7 +3,7 @@ using EzRent.Shared;
 
 namespace EzRent.Client.Pages.Property;
 
-public partial class ListProperty 
+public partial class ListProperty
 {
     private PropertyDto[]? properties;
 
@@ -14,11 +14,16 @@ public partial class ListProperty
 
     private async Task Edit(int PropertyId)
     {
-        NavManager.NavigateTo($"propiedades/editar/{PropertyId}");
+        NavManager.NavigateTo($"propiedades/{PropertyId}");
     }
 
-    private async Task Delete (int PropertyId)
+    private async Task Delete(int PropertyId)
     {
-        NavManager.NavigateTo($"propiedades/editar/{PropertyId}");
+        var propertyToDelete = properties.FirstOrDefault(x => x.PropertyId == PropertyId);
+        if (propertyToDelete != null)
+        {
+            await Http.DeleteAsync($"property/{PropertyId}");
+            properties = await Http.GetFromJsonAsync<PropertyDto[]>("Property");
+        }
     }
 }

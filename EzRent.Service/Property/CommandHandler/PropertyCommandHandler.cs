@@ -15,6 +15,6 @@ public class PropertyCommandHandler : INotificationHandler<PropertyCommand>
 
     public async Task Handle(PropertyCommand notification, CancellationToken cancellationToken)
     {
-        await _repository.AddAsync(notification);
+        await _repository.AddAsync(notification, cancellationToken);
     }
 }

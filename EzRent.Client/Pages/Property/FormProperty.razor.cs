@@ -11,6 +11,4 @@ public partial class FormProperty
     [Parameter] public PropertyDto Property { get; set; } = new();
     [Parameter] public string ButtonText { get; set; } = "Guardar";
     [Parameter] public EventCallback OnValidSubmit { get; set; }
-    
-    
 }

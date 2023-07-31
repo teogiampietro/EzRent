@@ -11,5 +11,6 @@ public class PropertyToDto : Profile
     {
         CreateMap<Property, PropertyDto>();
         CreateMap<PropertyDto,PropertyCommand>();
+        CreateMap<PropertyDto,UpdatePropertyCommand>();
     }
 }

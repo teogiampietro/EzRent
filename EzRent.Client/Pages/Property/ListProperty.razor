@@ -20,7 +20,7 @@ else
 {
     <MudDataGrid Items="@properties" >
         <Columns>
-            <SelectColumn T="@PropertyDto"/>
+            <PropertyColumn Property="x => x.PropertyId" Title="Id"/>
             <PropertyColumn Property="x => x.Name" Title="Nombre"/>
             <PropertyColumn Property="x => x.Price" Title="Precio"/>
             <PropertyColumn Property="x => x.RentPrice" Title="Alquiler"/>

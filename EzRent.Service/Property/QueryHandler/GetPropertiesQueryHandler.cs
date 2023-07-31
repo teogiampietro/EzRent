@@ -16,7 +16,7 @@ public class GetPropertiesQueryHandler : IRequestHandler<GetPropertiesQuery, Lis
     public async Task<List<Domain.Entities.Property>> Handle(GetPropertiesQuery request,
         CancellationToken cancellationToken)
     {
-        return (await _repository.GetAllAsync()).ToList() ??
+        return (await _repository.GetAllAsync(cancellationToken)).ToList() ??
                throw new Exception(nameof(GetPropertiesQueryHandler));
     }
 }
