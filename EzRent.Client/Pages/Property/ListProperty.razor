@@ -1,0 +1,38 @@
+﻿@page "/propiedades"
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<PageTitle>Propiedades</PageTitle>
+
+<h1>Propiedades</h1>
+
+<MudPaper Class="d-flex justify-end flex-grow-1 gap-4 my-3" Elevation="0">
+    <MudButton Href="propiedades/agregar" Variant="Variant.Filled" Color="Color.Primary">Agregar</MudButton>
+</MudPaper>
+
+@if (properties == null)
+{
+    <p>
+        <em>Cargando...</em>
+    </p>
+}
+else
+{
+    <MudDataGrid Items="@properties" >
+        <Columns>
+            <SelectColumn T="@PropertyDto"/>
+            <PropertyColumn Property="x => x.Name" Title="Nombre"/>
+            <PropertyColumn Property="x => x.Price" Title="Precio"/>
+            <PropertyColumn Property="x => x.RentPrice" Title="Alquiler"/>
+            <PropertyColumn Property="x => x.Environments" Title="Ambientes"/>
+            <TemplateColumn CellClass="d-flex justify-end">
+                <CellTemplate>
+                    <MudStack Row>
+                        <MudButton @onclick="@(() => Edit(context.Item.PropertyId))" Variant="Variant.Filled" Size="@Size.Small" Color="Color.Info" >Editar</MudButton>
+                        <MudButton @onclick="@(() => Delete(context.Item.PropertyId))" Variant="Variant.Filled" Size="@Size.Small" Color="Color.Secondary">Eliminar</MudButton>
+                    </MudStack>
+                </CellTemplate>
+            </TemplateColumn>
+        </Columns>
+    </MudDataGrid>
+}

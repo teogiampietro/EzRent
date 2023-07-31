@@ -1,0 +1,6 @@
+@page "/propiedades/agregar"
+@inject HttpClient Http;
+@inject NavigationManager NavManager
+
+<MudText Class="my-3" Typo="Typo.h4">Agregar propiedad</MudText>
+<FormProperty ButtonText="Agregar" Property="@Property" OnValidSubmit="@CreateProperty"/> 

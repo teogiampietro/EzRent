@@ -1,5 +1,6 @@
 using AutoMapper;
 using EzRent.Domain.Entities;
+using EzRent.Service.Property.Command;
 using EzRent.Service.Property.Queries;
 using Microsoft.AspNetCore.Mvc;
 using EzRent.Shared;
@@ -27,18 +28,10 @@ public class PropertyController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<List<Property>> Post()
+    public async Task<IActionResult> Post([FromBody] PropertyDto request)
     {
-        return await _mediator.Send(new GetPropertiesQuery());
+        await _mediator.Publish(_mapper.Map<PropertyCommand>(request));
+
+        return Ok();
     }
-    
-    
-    //return Enumerable.Range(1, 5).Select(index => new PropertyDto
-    //     {
-    //         Name = $"Casa {index}",
-    //          Price = index * 10000,
-    //         RentPrice = (index * 10000) / 12,
-    //         Environments = Random.Shared.Next(1, 5),
-    //     })
-    //    .ToArray();
 }
