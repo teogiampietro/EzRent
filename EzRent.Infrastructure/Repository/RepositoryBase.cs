@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using EzRent.Domain.Entities;
+using EzRent.Domain.Repository;
 using EzRent.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 

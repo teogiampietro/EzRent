@@ -1,4 +1,4 @@
-using EzRent.Infrastructure.Repository.Clients;
+using EzRent.Domain.Repository;
 using EzRent.Service.Client.Command;
 using MediatR;
 

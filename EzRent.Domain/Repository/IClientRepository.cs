@@ -1,6 +1,6 @@
 using EzRent.Domain.Entities;
 
-namespace EzRent.Infrastructure.Repository.Clients;
+namespace EzRent.Domain.Repository;
 
 public interface IClientRepository : IRepositoryBase<Client>
 {

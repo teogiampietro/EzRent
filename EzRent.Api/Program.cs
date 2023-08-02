@@ -1,8 +1,8 @@
 using System.Reflection;
 using EzRent.Domain.Entities;
+using EzRent.Domain.Repository;
 using EzRent.Infrastructure.Context;
-using EzRent.Infrastructure.Repository.Clients;
-using EzRent.Infrastructure.Repository.Properties;
+using EzRent.Infrastructure.Repository;
 using EzRent.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

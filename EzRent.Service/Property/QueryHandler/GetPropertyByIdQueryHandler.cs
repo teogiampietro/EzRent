@@ -1,4 +1,4 @@
-using EzRent.Infrastructure.Repository.Properties;
+using EzRent.Domain.Repository;
 using EzRent.Service.Property.Query;
 using MediatR;
 

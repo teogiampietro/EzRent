@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using EzRent.Domain.Entities;
 
-namespace EzRent.Infrastructure.Repository;
+namespace EzRent.Domain.Repository;
 
 public interface IRepositoryBase<T> where T : EntityBase
 {
