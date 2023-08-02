@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using EzRent.Client.Shared;
 using EzRent.Shared;
 
@@ -14,7 +15,7 @@ public partial class ListClient
     }
     private async Task Edit(int ClientId)
     {
-        NavManager.NavigateTo($"{Constants.ROUTE_CLIENT_MAIN}/editar/{ClientId}");
+        NavManager.NavigateTo($"{Constants.ROUTE_CLIENT_EDIT}/{ClientId}");
     }
     private async Task Delete(int ClientId)
     {

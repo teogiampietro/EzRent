@@ -1,9 +1,9 @@
-@attribute [Route(Constants.ROUTE_CLIENT_EDIT)]
+@attribute [Route($"{Constants.ROUTE_CLIENT_EDIT}/{{ClientId:int}}")]
 @inject HttpClient Http
 @inject NavigationManager NavManager
 
 <MudText Class="my-3" Typo="Typo.h4">Editar cliente</MudText>
 @if (Client != null)
 {
-    <FormProperty ButtonText="Editar" Property="@Client" OnValidSubmit="@PutClient"/>
+    <FormClient ButtonText="Editar" Client="@Client" OnValidSubmit="@PutClient"/>
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EzRent.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230727181708_Initial")]
+    [Migration("20230802175826_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -88,9 +88,9 @@ namespace EzRent.Infrastructure.Migrations
 
             modelBuilder.Entity("EzRent.Domain.Entities.Client", b =>
                 {
-                    b.Property<Guid>("ClientId")
+                    b.Property<int>("ClientId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -118,8 +118,8 @@ namespace EzRent.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("char(36)");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PropertyId")
                         .HasColumnType("int");

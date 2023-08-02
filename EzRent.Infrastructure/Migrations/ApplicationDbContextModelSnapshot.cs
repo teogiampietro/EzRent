@@ -85,9 +85,9 @@ namespace EzRent.Infrastructure.Migrations
 
             modelBuilder.Entity("EzRent.Domain.Entities.Client", b =>
                 {
-                    b.Property<Guid>("ClientId")
+                    b.Property<int>("ClientId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -115,8 +115,8 @@ namespace EzRent.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("char(36)");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PropertyId")
                         .HasColumnType("int");

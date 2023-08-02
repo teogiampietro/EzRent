@@ -73,12 +73,13 @@ namespace EzRent.Infrastructure.Migrations
                 name: "Clients",
                 columns: table => new
                 {
-                    ClientId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    ClientId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    PersonalId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Surname = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    PersonalId = table.Column<int>(type: "int", nullable: false),
                     Email = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -245,7 +246,7 @@ namespace EzRent.Infrastructure.Migrations
                 columns: table => new
                 {
                     ContractId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    ClientId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    ClientId = table.Column<int>(type: "int", nullable: false),
                     PropertyId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

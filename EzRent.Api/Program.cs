@@ -1,15 +1,11 @@
-using System;
 using System.Reflection;
 using EzRent.Domain.Entities;
 using EzRent.Infrastructure.Context;
+using EzRent.Infrastructure.Repository.Clients;
 using EzRent.Infrastructure.Repository.Properties;
 using EzRent.Service;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +38,11 @@ builder.Services.AddIdentityCore<ApplicationUser>()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+//Generics Repository
+builder.Services.AddScoped<IPropertyRepository, PropertyRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+
+
 //Mediator
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(MediatorHandler))
                                                                  ?? throw new ArgumentNullException(nameof(MediatorHandler))));
@@ -49,12 +50,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Get
 //AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
-//Generics Repository
-builder.Services.AddScoped<IPropertyRepository, PropertyRepository>();
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-
 
 var app = builder.Build();
 

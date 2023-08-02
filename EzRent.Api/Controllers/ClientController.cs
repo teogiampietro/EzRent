@@ -31,7 +31,7 @@ public class ClientController : MainController
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] PropertyDto request)
+    public async Task<IActionResult> Post([FromBody] ClientDto request)
     {
         await _mediator.Publish(_mapper.Map<ClientCommand>(request));
 
@@ -39,7 +39,7 @@ public class ClientController : MainController
     }
 
     [HttpPut]
-    public async Task<IActionResult> Put([FromBody] PropertyDto request)
+    public async Task<IActionResult> Put([FromBody] ClientDto request)
     {
         await _mediator.Publish(_mapper.Map<UpdateClientCommand>(request));
 

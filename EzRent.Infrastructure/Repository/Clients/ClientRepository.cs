@@ -5,7 +5,7 @@ namespace EzRent.Infrastructure.Repository.Clients;
 
 public class ClientRepository : RepositoryBase<Client>, IClientRepository
 {
-    protected ClientRepository(ApplicationDbContext dbContext) : base(dbContext)
+    public ClientRepository(ApplicationDbContext dbContext) : base(dbContext)
     {
     }
 }

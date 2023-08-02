@@ -10,7 +10,7 @@ public class GetClientByIdQueryHandler : IRequestHandler<GetClientByIdQuery, Dom
 
     public GetClientByIdQueryHandler(IClientRepository repository)
     {
-        _repository = repository;
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
     }
     public async Task<Domain.Entities.Client> Handle(GetClientByIdQuery request, CancellationToken cancellationToken)
     {
