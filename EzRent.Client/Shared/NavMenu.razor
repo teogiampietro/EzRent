@@ -1,5 +1,9 @@
 ﻿<MudNavMenu>
     <MudNavLink Href="" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Inicio</MudNavLink>
-    <MudNavLink Href="propiedades" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Propiedades</MudNavLink>
+    <MudNavLink Href="/contrato" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ControlPoint">Nuevo contrato</MudNavLink>
+    <MudNavGroup Icon="@Icons.Material.Filled.List" Title="Maestros" Expanded="true">
+        <MudNavLink Href="/propiedades">Propiedades</MudNavLink>
+        <MudNavLink Href="/clientes">Clientes</MudNavLink>
+    </MudNavGroup>
     <MudNavLink Href="swagger" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Swagger</MudNavLink>
 </MudNavMenu>

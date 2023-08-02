@@ -1,39 +1,39 @@
 using AutoMapper;
-using EzRent.Service.Property.Command;
-using EzRent.Service.Property.Query;
-using Microsoft.AspNetCore.Mvc;
+using EzRent.Service.Client.Command;
+using EzRent.Service.Client.Query;
 using EzRent.Shared;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EzRent.Server.Controllers;
 
-public class PropertyController : MainController
+public class ClientController : MainController
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 
-    public PropertyController(IMediator mediator, IMapper mapper)
+    public ClientController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator ?? throw new ArgumentException(nameof(mediator));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     [HttpGet]
-    public async Task<List<PropertyDto>> Get()
+    public async Task<List<ClientDto>> Get()
     {
-        return _mapper.Map<List<PropertyDto>>(await _mediator.Send(new GetPropertiesQuery()));
+        return _mapper.Map<List<ClientDto>>(await _mediator.Send(new GetClientsQuery()));
     }
 
     [HttpGet("{id:int}")]
-    public async Task<PropertyDto> Get(int id)
+    public async Task<ClientDto> Get(int id)
     {
-        return _mapper.Map<PropertyDto>(await _mediator.Send(new GetPropertyByIdQuery(id)));
+        return _mapper.Map<ClientDto>(await _mediator.Send(new GetClientByIdQuery(id)));
     }
 
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] PropertyDto request)
     {
-        await _mediator.Publish(_mapper.Map<PropertyCommand>(request));
+        await _mediator.Publish(_mapper.Map<ClientCommand>(request));
 
         return Ok(request);
     }
@@ -41,7 +41,7 @@ public class PropertyController : MainController
     [HttpPut]
     public async Task<IActionResult> Put([FromBody] PropertyDto request)
     {
-        await _mediator.Publish(_mapper.Map<UpdatePropertyCommand>(request));
+        await _mediator.Publish(_mapper.Map<UpdateClientCommand>(request));
 
         return Ok(request);
     }
@@ -49,7 +49,7 @@ public class PropertyController : MainController
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
-        await _mediator.Publish(new DeletePropertyByIdCommand(id));
+        await _mediator.Publish(new DeleteClientByIdCommand(id));
         
         return Ok();
     }

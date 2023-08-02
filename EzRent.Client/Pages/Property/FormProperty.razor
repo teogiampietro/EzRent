@@ -1,14 +1,15 @@
-<EditForm Model="@Property" OnValidSubmit="@OnValidSubmit" >
+<EditForm Model="@Property" OnValidSubmit="@OnValidSubmit">
     <DataAnnotationsValidator/>
-    <MudGrid >
-        <MudItem xs="12" Class="mx-6">
+    <MudGrid Class="d-flex flex-column">
+        <MudItem>
             <MudPaper Class="pa-4">
-                <MudTextField T="string" Label="Nombre" Required="true" RequiredError="Nombre propiedad requerido" @bind-Value="Property.Name"  />
+                <MudTextField T="string" Label="Nombre" Required="true" RequiredError="Nombre propiedad requerido" @bind-Value="Property.Name"/>
                 <MudTextField T="double" Label="Precio" Required="true" RequiredError="Precio propiedad requerido" @bind-Value="Property.Price"/>
                 <MudTextField T="int" Label="Alquiler" Required="true" RequiredError="Alquiler propiedad requerido" @bind-Value="Property.RentPrice"/>
                 <MudTextField T="int" Label="Ambientes" Required="true" RequiredError="Ambientes propiedad requerido" @bind-Value="Property.Environments"/>
-                <div class="d-flex align-center justify-space-between">
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" ButtonType="ButtonType.Submit">@ButtonText</MudButton>
+                <div class="d-flex align-center justify-end mt-3">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" class="mx-2" ButtonType="ButtonType.Submit">@ButtonText</MudButton>
+                    <MudButton Href="@Constants.ROUTE_PROPERTY_MAIN"  Variant="Variant.Filled" Color="Color.Default" class="mx-2" ButtonType="ButtonType.Button">Cancelar</MudButton>
                 </div>
             </MudPaper>
         </MudItem>

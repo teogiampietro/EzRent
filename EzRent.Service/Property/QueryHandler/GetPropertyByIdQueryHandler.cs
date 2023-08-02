@@ -1,5 +1,5 @@
 using EzRent.Infrastructure.Repository.Properties;
-using EzRent.Service.Property.Queries;
+using EzRent.Service.Property.Query;
 using MediatR;
 
 namespace EzRent.Service.Property.QueryHandler;

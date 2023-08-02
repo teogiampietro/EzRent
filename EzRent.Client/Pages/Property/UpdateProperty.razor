@@ -1,4 +1,4 @@
-@page "/propiedades/{PropertyId:int}"
+@attribute [Route($"{Constants.ROUTE_PROPERTY_EDIT}/{{PropertyId:int}}")]
 @inject HttpClient Http
 @inject NavigationManager NavManager
 

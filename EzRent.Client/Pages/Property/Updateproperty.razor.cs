@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using EzRent.Client.Shared;
 using EzRent.Shared;
 using Microsoft.AspNetCore.Components;
 
@@ -11,12 +12,12 @@ public partial class UpdateProperty
 
     protected override async Task OnParametersSetAsync()
     {
-        Property = await Http.GetFromJsonAsync<PropertyDto>($"property/{PropertyId}");
+        Property = await Http.GetFromJsonAsync<PropertyDto>($"{Constants.API_PROPERTY}/{PropertyId}");
     }
 
     private async Task PutProperty()
     {
-        var asd = await Http.PutAsJsonAsync("property", Property);
-        NavManager.NavigateTo($"propiedades");
+        await Http.PutAsJsonAsync(Constants.API_PROPERTY, Property);
+        NavManager.NavigateTo(Constants.ROUTE_PROPERTY_MAIN);
     }
 }

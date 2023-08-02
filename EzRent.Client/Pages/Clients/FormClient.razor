@@ -1,0 +1,17 @@
+<EditForm Model="@Client" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator/>
+    <MudGrid Class="d-flex flex-column">
+        <MudItem>
+            <MudPaper Class="pa-4">
+                <MudTextField Label="Nombre" Required="true" RequiredError="Nombre cliente requerido" @bind-Value="Client.Name"/>
+                <MudTextField Label="Apellido" Required="true" RequiredError="Apellido cliente requerido" @bind-Value="Client.Surname"/>
+                <MudTextField Label="DNI" Required="true" RequiredError="DNI cliente requerido" @bind-Value="Client.PersonalId"/>
+                <MudTextField Label="Email" Required="true" RequiredError="Email cliente requerido" @bind-Value="Client.Email"/>
+                <div class="d-flex align-center justify-end mt-3">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" class="mx-2" ButtonType="ButtonType.Submit">@ButtonText</MudButton>
+                    <MudButton Href="@Constants.ROUTE_CLIENT_MAIN" Variant="Variant.Filled" Color="Color.Default" class="mx-2" ButtonType="ButtonType.Button">Cancelar</MudButton>
+                </div>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</EditForm>

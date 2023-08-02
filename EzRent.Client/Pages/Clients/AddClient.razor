@@ -1,0 +1,6 @@
+@attribute [Route(Constants.ROUTE_CLIENT_ADD)]
+@inject HttpClient Http;
+@inject NavigationManager NavManager
+
+<MudText Class="my-3" Typo="Typo.h4">Agregar Cliente</MudText>
+<FormClient ButtonText="Agregar" OnValidSubmit="@CreateClient" Client="@client" /> 

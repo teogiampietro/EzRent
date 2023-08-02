@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace EzRent.Service.Property.Queries;
+namespace EzRent.Service.Property.Query;
 
 public class GetPropertyByIdQuery : IRequest<Domain.Entities.Property>
 {
