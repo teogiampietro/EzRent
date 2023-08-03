@@ -1,0 +1,17 @@
+<EditForm Model="@Product" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator/>
+    <MudGrid Class="d-flex flex-column">
+        <MudItem>
+            <MudPaper Class="pa-4">
+                <MudTextField Label="Nombre" Required="true" RequiredError="Descripción requerido" @bind-Value="Product.Description"/>
+                <MudTextField Label="Precio" Required="true" RequiredError="Precio requerido" @bind-Value="Product.Price"/>
+                <MudTextField Label="Cantidad" Required="true" RequiredError="Cantidad de cajas" @bind-Value="Product.Quantity"/>
+                <MudTextField Label="Cantidad por caja" Required="true" RequiredError="Cantidad de items por caja" @bind-Value="Product.ItemsPerBox"/>
+                <div class="d-flex align-center justify-end mt-3">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" class="mx-2" ButtonType="ButtonType.Submit">@ButtonText</MudButton>
+                    <MudButton Href="@Constants.ROUTE_PRODUCT_MAIN"  Variant="Variant.Filled" Color="Color.Default" class="mx-2" ButtonType="ButtonType.Button">Cancelar</MudButton>
+                </div>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</EditForm>

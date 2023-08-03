@@ -1,6 +1,6 @@
 using AutoMapper;
 using EzRent.Service.Client.Command;
-using EzRent.Service.Property.Command;
+using EzRent.Service.Product.Command;
 using EzRent.Shared;
 
 namespace EzRent.Api.Mapper;
