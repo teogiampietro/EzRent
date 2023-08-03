@@ -1,9 +1,0 @@
-@attribute [Route($"{Constants.ROUTE_PROPERTY_EDIT}/{{PropertyId:int}}")]
-@inject HttpClient Http
-@inject NavigationManager NavManager
-
-<MudText Class="my-3" Typo="Typo.h4">Editar propiedad</MudText>
-@if (Property != null)
-{
-    <FormProperty ButtonText="Editar" Property="@Property" OnValidSubmit="@PutProperty"/>
-}
