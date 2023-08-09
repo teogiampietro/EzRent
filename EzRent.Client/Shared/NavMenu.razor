@@ -1,6 +1,7 @@
 ﻿<MudNavMenu>
     <MudNavLink Href="" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Inicio</MudNavLink>
-    <MudNavLink Href="/contrato" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ControlPoint">Nuevo contrato</MudNavLink>
+    <MudNavLink Href="@Constants.ROUTE_STOCK_MAIN" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ControlPoint">Productos</MudNavLink>
+    <MudNavLink Href="@Constants.ROUTE_ORDER_MAIN" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ShoppingCart">Ordenes</MudNavLink>
     <MudNavGroup Icon="@Icons.Material.Filled.List" Title="Maestros" Expanded="true">
         <MudNavLink Href="@Constants.ROUTE_PRODUCT_MAIN" >Productos</MudNavLink>
         <MudNavLink Href="@Constants.ROUTE_CLIENT_MAIN" >Clientes</MudNavLink>

@@ -1,0 +1,45 @@
+@attribute [Route(Constants.ROUTE_STOCK_MAIN)]
+@inject HttpClient Http
+@inject ISnackbar Snackbar
+
+<MudText Class="my-3" Typo="Typo.h5">Actualizar stock</MudText>
+
+<MudGrid Class="d-flex justify-content-center align-items-center flex-wrap gap-1 my-3">
+    <MudItem xs="12" sm="8">
+        <MudAutocomplete
+            T="ProductDto"
+            Label="Buscar producto..."
+            ToStringFunc="@(i => DisplayProduct(i))"
+            SearchFunc="@SearchProduct"
+            ResetValueOnEmptyText="@true"
+            Variant="Variant.Outlined"
+            AdornmentColor="Color.Primary"
+            AdornmentIcon="@Icons.Material.Filled.Search"
+            ValueChanged="@( productDto => SetQuantity(productDto))"
+            />
+    </MudItem>
+    <MudItem xs="12" sm="2">
+        <MudTextField @bind-Value="@quantity" Label="Cantidad" Variant="Variant.Outlined"></MudTextField>
+    </MudItem>
+    <MudItem xs="12" sm="1">
+        <MudButton OnClick="@Add" Variant="Variant.Filled" Color="Color.Primary">Agregar</MudButton>
+    </MudItem>
+</MudGrid>
+<MudDataGrid Items="@_stockList" Elevation="25" Dense="true">
+    <Columns>
+        <PropertyColumn Property="x => x.ProductId" Title="Producto"/>
+        <PropertyColumn Property="x => x.Description" Title="Descripción"/>
+        <PropertyColumn Property="x => x.Quantity" Title="Cantidad de items"/>
+        <TemplateColumn CellClass="d-flex justify-end">
+            <CellTemplate >
+                <MudStack Row>
+                    <MudIconButton @onclick="@(() => Remove(context.Item.ProductId))" Icon="@Icons.Material.Filled.Delete" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"/>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+</MudDataGrid>
+
+<MudItem Class="d-flex justify-content-end my-2">
+    <MudButton OnClick="@Update" Variant="Variant.Filled" Color="Color.Primary">Actualizar</MudButton>
+</MudItem>
