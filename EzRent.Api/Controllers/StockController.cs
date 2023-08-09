@@ -21,9 +21,9 @@ public class StockController : MainController
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] List<StockUpdateDto> request)
     {
-        List<Product> prodcutsToUpdate = _mapper.Map<List<Product>>(request);
+        var productsToUpdate = _mapper.Map<List<Product>>(request);
         
-        _mediator.Publish(new UpdateProductStockCommand(prodcutsToUpdate));
+        await _mediator.Publish(new UpdateProductStockCommand(productsToUpdate));
         
         return Ok();
     }

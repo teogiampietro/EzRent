@@ -15,21 +15,19 @@ public class UpdateProductStockCommandHandler : INotificationHandler<UpdateProdu
 
     public async Task Handle(UpdateProductStockCommand notification, CancellationToken cancellationToken)
     {
-        var productsIdsToUpdate = notification.StockToUpdate.Select(x => x.ProductId).ToList();
+        var productsIds = notification.ProductsToUpdate.Select(x => x.ProductId).ToList();
         
-        var productsToUpdate = await _repository.GetAllAsync(cancellationToken);
-        
-        productsToUpdate = productsToUpdate.Where(x => productsIdsToUpdate.Contains(x.ProductId)).ToList();
-       
+        var productsToUpdate = await _repository.GetAsync(predicate: x => productsIds.Contains(x.ProductId),
+            cancellationToken);
+
         foreach (var product in productsToUpdate)
         {
-            var stockUpdate = notification.StockToUpdate.FirstOrDefault(x => x.ProductId == product.ProductId);
-            if (stockUpdate == null) return;
+            var productUpdated = notification.ProductsToUpdate.FirstOrDefault(x => x.ProductId == product.ProductId);
+            if (productUpdated == null) break;
 
-            product.Quantity = stockUpdate.Quantity;
-            await _repository.UpdateAsync(product, cancellationToken);
+            product.Quantity = productUpdated.Quantity;
         }
 
-        //_repository.UpdateListAsync(productsToUpdate.ToList(), cancellationToken);
+        await _repository.UpdateListAsync(productsToUpdate, cancellationToken);
     }
 }

@@ -19,14 +19,17 @@ public partial class ListStock
 
     private async Task<IEnumerable<ProductDto>> SearchProduct(string value)
     {
-        return string.IsNullOrEmpty(value) ? products : products.Where(x => x.Description.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        return string.IsNullOrEmpty(value)
+            ? products
+            : products.Where(x => x.Description.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
     private async Task SetQuantity(ProductDto? product)
     {
-       selectedProduct = product ?? new ProductDto();
-       quantity = selectedProduct.Quantity;
+        selectedProduct = product ?? new ProductDto();
+        quantity = selectedProduct.Quantity;
     }
+
     private async Task Add()
     {
         if (selectedProduct == null || selectedProduct.ProductId == 0) return;
@@ -36,7 +39,7 @@ public partial class ListStock
             Snackbar.Add($"El producto {selectedProduct.Description} ya está incluido en el stock.", Severity.Warning);
             return;
         }
-        
+
         var stockToAdd = new StockUpdateDto
         {
             ProductId = selectedProduct.ProductId,

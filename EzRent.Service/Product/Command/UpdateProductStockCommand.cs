@@ -4,9 +4,10 @@ namespace EzRent.Service.Product.Command;
 
 public class UpdateProductStockCommand : INotification
 {
-    public UpdateProductStockCommand(List<Domain.Entities.Product> products)
+    public UpdateProductStockCommand(List<Domain.Entities.Product> _products)
     {
-        StockToUpdate = products;
+        ProductsToUpdate = _products;
     }
-    public List<Domain.Entities.Product> StockToUpdate { get; set; }
+
+    public List<Domain.Entities.Product> ProductsToUpdate { get; set; }
 }
