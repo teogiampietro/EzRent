@@ -18,16 +18,16 @@ public class RepositoryBase<T> : IRepositoryBase<T>
 
     public async Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken)
         => await _dbContext.Set<T>().ToListAsync(cancellationToken);
-    
+
     public async Task<IReadOnlyList<T>> GetAsync(
-        Expression<Func<T, bool>> predicate, 
+        Expression<Func<T, bool>> predicate,
         CancellationToken cancellationToken)
         => await _dbContext.Set<T>().Where(predicate).ToListAsync(cancellationToken);
 
     public async Task<IReadOnlyList<T>> GetAsync(
         CancellationToken cancellationToken,
         Expression<Func<T, bool>> predicate = null,
-        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, 
+        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
         string includeString = null,
         bool disableTracking = true)
     {
@@ -46,7 +46,7 @@ public class RepositoryBase<T> : IRepositoryBase<T>
     public async Task<IReadOnlyList<T>> GetAsync(
         CancellationToken cancellationToken,
         Expression<Func<T, bool>> predicate = null,
-        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, 
+        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
         List<Expression<Func<T, object>>> includes = null,
         bool disableTracking = true)
     {
@@ -59,7 +59,7 @@ public class RepositoryBase<T> : IRepositoryBase<T>
 
         if (orderBy != null)
             return await orderBy(query).ToListAsync(cancellationToken);
-        
+
         return await query.ToListAsync(cancellationToken);
     }
 
@@ -84,5 +84,16 @@ public class RepositoryBase<T> : IRepositoryBase<T>
     {
         _dbContext.Set<T>().Remove(entity);
         await _dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task UpdateListAsync(List<T> list, CancellationToken cancellationToken)
+    {
+        foreach (var item in list)
+        {
+            _dbContext.Entry(item).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync(cancellationToken);
+        }
+
+        //_dbContext.Set<T>().UpdateRange(list);
     }
 }

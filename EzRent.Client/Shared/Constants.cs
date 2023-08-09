@@ -13,7 +13,10 @@ public static class Constants
     public const string ROUTE_CLIENT_ADD = $"{ROUTE_CLIENT_MAIN}/{ACTION_ADD}";
     public const string ROUTE_CLIENT_EDIT = $"{ROUTE_CLIENT_MAIN}/{ACTION_EDIT}";
 
+    public const string ROUTE_STOCK_MAIN = "stock";
+    public const string ROUTE_ORDER_MAIN = "ordenes";
+    
     public const string API_CLIENT = "client";
     public const string API_PRODUCT = "product";
-
+    public const string API_STOCK= "stock";
 }

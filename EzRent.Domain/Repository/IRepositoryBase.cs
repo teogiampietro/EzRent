@@ -28,5 +28,6 @@ public interface IRepositoryBase<T> where T : EntityBase
     Task<T> GetByIdAsync(int id, CancellationToken cancellationToken);
     Task<T> AddAsync(T entity, CancellationToken cancellationToken);
     Task UpdateAsync(T entity, CancellationToken cancellationToken);
+    Task UpdateListAsync(List<T> list, CancellationToken cancellationToken);
     Task DeleteAsync(T entity, CancellationToken cancellationToken);
 }
