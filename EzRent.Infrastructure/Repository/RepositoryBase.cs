@@ -86,14 +86,9 @@ public class RepositoryBase<T> : IRepositoryBase<T>
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task UpdateListAsync(List<T> list, CancellationToken cancellationToken)
+    public async Task UpdateListAsync(IReadOnlyList<T> list, CancellationToken cancellationToken)
     {
-        foreach (var item in list)
-        {
-            _dbContext.Entry(item).State = EntityState.Modified;
-            await _dbContext.SaveChangesAsync(cancellationToken);
-        }
-
-        //_dbContext.Set<T>().UpdateRange(list);
+        _dbContext.Set<T>().UpdateRange(list);
+        await _dbContext.SaveChangesAsync(cancellationToken);
     }
 }
