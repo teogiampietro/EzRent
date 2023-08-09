@@ -1,6 +1,7 @@
 @attribute [Route(Constants.ROUTE_STOCK_MAIN)]
 @inject HttpClient Http
 @inject ISnackbar Snackbar
+@inject NavigationManager NavManager
 
 <MudText Class="my-3" Typo="Typo.h5">Actualizar stock</MudText>
 
@@ -25,7 +26,7 @@
         <MudButton OnClick="@Add" Variant="Variant.Filled" Color="Color.Primary">Agregar</MudButton>
     </MudItem>
 </MudGrid>
-<MudDataGrid Items="@_stockList" Elevation="25" Dense="true">
+<MudDataGrid Items="@stockList" Elevation="25" Dense="true">
     <Columns>
         <PropertyColumn Property="x => x.ProductId" Title="Producto"/>
         <PropertyColumn Property="x => x.Description" Title="Descripción"/>

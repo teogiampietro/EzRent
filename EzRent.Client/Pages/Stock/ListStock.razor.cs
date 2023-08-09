@@ -7,8 +7,8 @@ namespace EzRent.Client.Pages.Stock;
 
 public partial class ListStock
 {
-    private List<StockUpdateDto> _stockList = new();
     private ProductDto[]? products;
+    private List<StockUpdateDto> stockList = new();
     private ProductDto selectedProduct = new();
     private int quantity;
 
@@ -34,7 +34,7 @@ public partial class ListStock
     {
         if (selectedProduct == null || selectedProduct.ProductId == 0) return;
 
-        if (_stockList.Any(x => selectedProduct.ProductId == x.ProductId))
+        if (stockList.Any(x => selectedProduct.ProductId == x.ProductId))
         {
             Snackbar.Add($"El producto {selectedProduct.Description} ya está incluido en el stock.", Severity.Warning);
             return;
@@ -47,13 +47,13 @@ public partial class ListStock
             Quantity = quantity
         };
 
-        _stockList.Add(stockToAdd);
+        stockList.Add(stockToAdd);
     }
 
     private async Task Remove(int ProductId)
     {
-        var item = _stockList.FirstOrDefault(x => x.ProductId == ProductId);
-        _stockList.Remove(item);
+        var item = stockList.FirstOrDefault(x => x.ProductId == ProductId);
+        stockList.Remove(item);
     }
 
     private static string DisplayProduct(ProductDto product)
@@ -63,6 +63,15 @@ public partial class ListStock
 
     private async Task Update()
     {
-        await Http.PutAsJsonAsync(Constants.API_STOCK, _stockList);
+        var response = await Http.PutAsJsonAsync(Constants.API_STOCK, stockList);
+        if (!response.IsSuccessStatusCode)
+        {
+            Snackbar.Add($"Error al intentar actualizar el stock.", Severity.Error);
+            return;
+        }
+
+        Snackbar.Add("El stock fue actualizado.", Severity.Success);
+        Thread.Sleep(3000);
+        NavManager.NavigateTo(Constants.ROUTE_PRODUCT_MAIN);
     }
 }
