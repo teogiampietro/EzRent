@@ -5,9 +5,9 @@ using EzRent.Shared;
 
 namespace EzRent.Api.Mapper;
 
-public class ClientToDto: Profile
+public class ClientMapper: Profile
 {
-    public ClientToDto()
+    public ClientMapper()
     {
         CreateMap<Domain.Entities.Client, ClientDto>();
         CreateMap<ClientDto,ClientCommand>();

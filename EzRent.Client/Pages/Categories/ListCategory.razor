@@ -1,0 +1,39 @@
+@attribute [Route(Constants.ROUTE_CATEGORY_MAIN)]
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<PageTitle>Categorias</PageTitle>
+
+<MudPaper Class="justify-content-between align-items-end d-flex flex-grow-1 gap-4 my-3" Elevation="0">
+    <MudText Class="my-3" Typo="Typo.h4">Categorias</MudText>
+    <MudButton Href=@Constants.ROUTE_CATEGORY_ADD Variant="Variant.Filled" Color="Color.Primary">Agregar</MudButton>
+</MudPaper>
+
+@if (categories == null)
+{
+    <p>
+        <em>Cargando...</em>
+    </p>
+}
+else
+{
+    <MudDataGrid Items="@categories" Elevation="25">
+        <Columns>
+            <PropertyColumn Property="x => x.CategoryId" Title="Id"/>
+            <PropertyColumn Property="x => x.Name" Title="DNI"/>
+            <PropertyColumn Property="x => x.Description" Title="Nombre"/>
+            <TemplateColumn CellClass="d-flex justify-end">
+                <CellTemplate >
+                    <MudStack Row>
+                        <MudIconButton @onclick="@(() => Edit(context.Item.CategoryId))" Icon="@Icons.Material.Filled.Edit" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"/>
+                        <MudIconButton @onclick="@(() => Delete(context.Item.CategoryId))" Icon="@Icons.Material.Filled.Delete" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"/>
+                    </MudStack>
+                </CellTemplate>
+            </TemplateColumn>
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    
+}

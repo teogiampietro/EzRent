@@ -1,0 +1,9 @@
+@attribute [Route($"{Constants.ROUTE_CATEGORY_EDIT}/{{CategoryId:int}}")]
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<MudText Class="my-3" Typo="Typo.h4">Editar cliente</MudText>
+@if (Category != null)
+{
+    <FormClient ButtonText="Editar" Client="@Category" OnValidSubmit="@PutClient"/>
+}

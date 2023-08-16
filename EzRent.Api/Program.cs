@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
 //Entity Context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnectionMySql"),serverVersion));
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnectionMySql"), serverVersion));
 
 //Cors
 builder.Services.AddCors(options =>
@@ -41,11 +41,13 @@ builder.Services.AddIdentityCore<ApplicationUser>()
 //Generics Repository
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
 //Mediator
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(MediatorHandler))
-                                                                 ?? throw new ArgumentNullException(nameof(MediatorHandler))));
+                                                                    ?? throw new ArgumentNullException(
+                                                                        nameof(MediatorHandler))));
 
 //AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));

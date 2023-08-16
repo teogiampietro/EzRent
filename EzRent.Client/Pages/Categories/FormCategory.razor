@@ -1,0 +1,15 @@
+<EditForm Model="@Category" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator/>
+    <MudGrid Class="d-flex flex-column">
+        <MudItem>
+            <MudPaper Class="pa-4">
+                <MudTextField Label="Nombre" Required="true" RequiredError="Nombre categoria requerida" @bind-Value="Category.Name"/>
+                <MudTextField Label="Descripcion" Required="true" RequiredError="Descripcion categoria requerida" @bind-Value="Category.Description"/>
+                <div class="d-flex align-center justify-end mt-3">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" class="mx-2" ButtonType="ButtonType.Submit">@ButtonText</MudButton>
+                    <MudButton Href="@Constants.ROUTE_CATEGORY_MAIN" Variant="Variant.Filled" Color="Color.Default" class="mx-2" ButtonType="ButtonType.Button">Cancelar</MudButton>
+                </div>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</EditForm>

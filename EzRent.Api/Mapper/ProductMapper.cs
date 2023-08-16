@@ -5,20 +5,14 @@ using EzRent.Shared;
 
 namespace EzRent.Api.Mapper;
 
-public class ProductToDto : Profile
+public class ProductMapper : Profile
 {
-    private readonly IMapper _mapper;
-
-    public ProductToDto(IMapper mapper)
-    {
-        _mapper = mapper;
-    }
-    public ProductToDto()
+    public ProductMapper()
     {
         CreateMap<Product, ProductDto>();
-        CreateMap<ProductDto,ProductCommand>();
-        CreateMap<ProductDto,UpdateProductCommand>();
-        
+        CreateMap<ProductDto, ProductCommand>();
+        CreateMap<ProductDto, UpdateProductCommand>();
+
         CreateMap<StockUpdateDto, Product>()
             .ForMember(dest => dest.ProductId, opt => opt.MapFrom(src => src.ProductId))
             .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
